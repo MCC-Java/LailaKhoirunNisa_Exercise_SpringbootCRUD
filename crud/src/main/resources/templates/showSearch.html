@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+    <div align="center">
+        <title>Show Search</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h2>This is what you Search</h2>
+        <table border="1" cellpadding="10" cellspacing="0">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                
+            </tr>
+            
+            
+            <tr th:each ="reg : ${regions}">
+                <td th:text ="${reg.id}">id</td>
+                <td th:text ="${reg.name}">name</td>
+            </table>
+        </div>
+    </body>
+</html>

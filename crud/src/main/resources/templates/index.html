@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+        <title>Region</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <h1>Region CRUD</h1>
+            <br>
+    </div>        
+      <div>
+        <form th:action="@{/search}">
+            <h2>Search</h2>
+            <p><input type="text" name="keyword" id="keyword" size="20" th:value="${keyword}" required ></p>
+    
+    <input type="submit" value="Search">
+    
+    <input type="button" value="Clear" id="btnClear" onclick="clearSearch()" >
+</form>
+      </div>
+        <br>    
+        
+                     <form action="#" th:action ="@{/save}" th:object="${region}" method="post">
+                    <label>Region Id</label>
+                    <p><input type="number" id="textId" class ="form-control" th:field="*{id}" required></p>
+                    
+                    <label>Region Name</label>
+                    <p><input type="text" id="textName" class ="form-control" th:field="*{name}" pattern="[A-Za-z]" required></p>
+                    <br>
+                    <input type ="submit" value="Save"> 
+                           <input type="reset" value="Reset">
+                           </form>
+        <br>
+        
+        <div>
+        <h2>DATA REGION</h2>
+        <br>
+        <table border="1" cellpadding="10" cellspacing="0">
+            
+            <tr>
+                    <th> ID</th>
+                    <th> Name</th>
+                    <th>Action</th>
+                </tr>
+            
+            
+            
+            <tr th:each ="reg : ${regions}">
+                <td th:text ="${reg.id}">id</td>
+                <td th:text ="${reg.name}">name</td>
+              <!--<td><a th:href="@{/save">Edit</a>--> 
+              <td><a th:href ="@{'/delete/' + ${reg.id}}" type="button" value="Delete">Delete</a></td></tr>
+                 
+             
+            </table>
+                          
+        
+<!--            < th: action ="@{/save}" th:object="${region}" method="POST">
+                <label>Region Id</label>
+                <input type="text" id="textId" class ="form-control" th:field="*{id}"><br><br>
+                <label>Region Name</label>
+                <input type="text" id="textName" class ="form-control" th:field="*{name}"><br><br>
+                <input type ="submit" value="Save"
+                       -->
+    
+                
+        
+                             
+<script type="text/javascript">
+    function clearSearch() {
+        window.location = "[[@{/}]]";
+    }
+</script>      
+</div>
+    </body>
+</html>
